@@ -41,6 +41,10 @@
 		D48174692930116D006E240A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48174682930116D006E240A /* NetworkService.swift */; };
 		D481746C2930121D006E240A /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = D481746B2930121D006E240A /* Movie.swift */; };
 		D481746E29301282006E240A /* MovieResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D481746D29301282006E240A /* MovieResponse.swift */; };
+		D488BB2229312462002643E1 /* UIViewController + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488BB2129312462002643E1 /* UIViewController + Ext.swift */; };
+		D488BB242931266A002643E1 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488BB232931266A002643E1 /* ErrorHandling.swift */; };
+		D488BB2729312F9F002643E1 /* MovieListProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488BB2629312F9F002643E1 /* MovieListProtocol.swift */; };
+		D488BB2A29313053002643E1 /* MovieDetailsProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D488BB2929313053002643E1 /* MovieDetailsProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +107,10 @@
 		D48174682930116D006E240A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		D481746B2930121D006E240A /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		D481746D29301282006E240A /* MovieResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResponse.swift; sourceTree = "<group>"; };
+		D488BB2129312462002643E1 /* UIViewController + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Ext.swift"; sourceTree = "<group>"; };
+		D488BB232931266A002643E1 /* ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		D488BB2629312F9F002643E1 /* MovieListProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListProtocol.swift; sourceTree = "<group>"; };
+		D488BB2929313053002643E1 /* MovieDetailsProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsProtocol.swift; sourceTree = "<group>"; };
 		ECC43EA4F6E6A19407EB566B /* Pods_FlowMovie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlowMovie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2E6CCD02ADA9DB8F882F02A /* Pods-FlowMovie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowMovie.debug.xcconfig"; path = "Target Support Files/Pods-FlowMovie/Pods-FlowMovie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,6 +185,7 @@
 		D46E7DFF2930D4710037CA2E /* Movie Details */ = {
 			isa = PBXGroup;
 			children = (
+				D488BB2829313043002643E1 /* Protocol */,
 				D488BB2029310DDA002643E1 /* View */,
 				D488BB1F29310DCC002643E1 /* Interactor */,
 				D488BB1C29310D97002643E1 /* Presenter */,
@@ -297,6 +306,7 @@
 		D47D3481292FCCA70097772C /* Movie List */ = {
 			isa = PBXGroup;
 			children = (
+				D488BB2529312F83002643E1 /* Protocol */,
 				D47D348D292FCE1B0097772C /* View */,
 				D47D348C292FCE080097772C /* Interactor */,
 				D47D348A292FCDEF0097772C /* Presenter */,
@@ -362,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				D481745F29300CCA006E240A /* UINavigationBar + Ext.swift */,
+				D488BB2129312462002643E1 /* UIViewController + Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -372,6 +383,7 @@
 				D481746429300F7D006E240A /* MovieRouter.swift */,
 				D48174682930116D006E240A /* NetworkService.swift */,
 				D46E7DF92930B6380037CA2E /* ConnectivityService.swift */,
+				D488BB232931266A002643E1 /* ErrorHandling.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -396,7 +408,7 @@
 		D488BB1D29310D9F002643E1 /* Data Manger */ = {
 			isa = PBXGroup;
 			children = (
-				D46E7E0B2930F2C60037CA2E /* MovieDetailsRemoteDataManger.swift */,
+				D488BB2B29313089002643E1 /* Remote */,
 			);
 			path = "Data Manger";
 			sourceTree = "<group>";
@@ -423,6 +435,30 @@
 				D46E7E032930D4C30037CA2E /* MovieDetailsVC.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D488BB2529312F83002643E1 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D488BB2629312F9F002643E1 /* MovieListProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		D488BB2829313043002643E1 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D488BB2929313053002643E1 /* MovieDetailsProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		D488BB2B29313089002643E1 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				D46E7E0B2930F2C60037CA2E /* MovieDetailsRemoteDataManger.swift */,
+			);
+			path = Remote;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -674,6 +710,7 @@
 				D46E7E0C2930F2C60037CA2E /* MovieDetailsRemoteDataManger.swift in Sources */,
 				D481746529300F7D006E240A /* MovieRouter.swift in Sources */,
 				D48174692930116D006E240A /* NetworkService.swift in Sources */,
+				D488BB2A29313053002643E1 /* MovieDetailsProtocol.swift in Sources */,
 				D47D349C292FD3BD0097772C /* UIHelper.swift in Sources */,
 				D46E7E0E2930F83C0037CA2E /* Genres.swift in Sources */,
 				D46E7DFE2930B7B40037CA2E /* MovieListRemoteDataManger.swift in Sources */,
@@ -683,11 +720,14 @@
 				D47D344A292FCAA90097772C /* AppDelegate.swift in Sources */,
 				D47D3454292FCAA90097772C /* FlowMovie.xcdatamodeld in Sources */,
 				D46E7E062930D4C30037CA2E /* MovieDetailsInteractor.swift in Sources */,
+				D488BB2229312462002643E1 /* UIViewController + Ext.swift in Sources */,
 				D47D344C292FCAA90097772C /* SceneDelegate.swift in Sources */,
 				D481746E29301282006E240A /* MovieResponse.swift in Sources */,
+				D488BB242931266A002643E1 /* ErrorHandling.swift in Sources */,
 				D46E7DFA2930B6380037CA2E /* ConnectivityService.swift in Sources */,
 				D47D3486292FCCD50097772C /* MovieListPresenter.swift in Sources */,
 				D481746C2930121D006E240A /* Movie.swift in Sources */,
+				D488BB2729312F9F002643E1 /* MovieListProtocol.swift in Sources */,
 				D46E7E0A2930F2430037CA2E /* MovieDetailsResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

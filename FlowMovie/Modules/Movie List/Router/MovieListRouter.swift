@@ -42,6 +42,7 @@ class MovieListRouter: MovieListRouterProtocol {
     func presentMovieDetails(movieId: Int) {
         let movieDetailsVC = MovieDetailsRouter.start(movieId: movieId)
         if let sourceView = viewController as? MovieListVC {
+            sourceView.fadeInAnimation()
             movieDetailsVC.modalPresentationStyle = .overFullScreen
             movieDetailsVC.modalTransitionStyle = .crossDissolve
             sourceView.navigationController?.present(movieDetailsVC, animated: true)

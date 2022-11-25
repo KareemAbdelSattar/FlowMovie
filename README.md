@@ -1,6 +1,6 @@
 # FlowMovie 
 
-Softxpert-VIPER is an sample iOS App written in Swift using the VIPER architecture.  
+FlowMovie is an sample iOS App written in Swift using the VIPER architecture.  
 
 
 [![Language](https://img.shields.io/badge/language-Swift%205.6-orange.svg)](https://swift.org)

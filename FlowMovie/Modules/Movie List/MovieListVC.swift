@@ -9,15 +9,6 @@
 import UIKit
 import Kingfisher
 
-protocol MovieListViewProtocol: AnyObject {
-    var presenter: MovieListPresenterProtocol? { get set }
-    func showIndicator()
-    func hideIndicator()
-    func reloadMovies()
-    func showPopularMovies(movies: [Movie])
-    func showError(errorMsg: String)
-}
-
 class MovieListVC: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
@@ -40,8 +31,6 @@ class MovieListVC: UIViewController {
     }
     
     func configureNavigationController() {
-//        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.main_bg!]
-//        navigationController?.navigationBar.setColors(background: UIColor.main_bg!, text: UIColor.systemBackground)
         title = "Movies"
     }
 }
@@ -71,10 +60,7 @@ extension MovieListVC: MovieListViewProtocol {
     }
     
     func showError(errorMsg: String) {
-        let alerViewController = UIAlertController(title: "Warning", message: errorMsg, preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        alerViewController.addAction(cancelAction)
-        self.present(alerViewController, animated: true)
+        self.showAlertView(with: errorMsg)
     }
 }
 

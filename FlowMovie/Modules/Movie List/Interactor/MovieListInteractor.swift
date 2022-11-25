@@ -8,17 +8,10 @@
 
 import UIKit
 
-protocol MovieListInteractorProtocol {
-    var presenter: MovieListPresenterProtocol? { get set }
-    var remoteDataManger: MovieListRemoteDataMangerProtocol? { get set }
-    func fetchPopularMovies(page: Int)
-    func onRetrivePopularMovies(movieResponse: MovieResponse)
-    func onErrorRetriveMovies(error: NetworkError)
-}
-
 class MovieListInteractor: MovieListInteractorProtocol {
     var presenter: MovieListPresenterProtocol?
     var remoteDataManger: MovieListRemoteDataMangerProtocol?
+    private let errorHandling = ErrorHandling()
     
     func fetchPopularMovies(page: Int) {
         remoteDataManger?.getPopularMovies(page: page)
@@ -26,13 +19,15 @@ class MovieListInteractor: MovieListInteractorProtocol {
     
     func onRetrivePopularMovies(movieResponse: MovieResponse) {
         if movieResponse.page == 1 && movieResponse.results!.isEmpty {
-            presenter?.didRetriveError(error: .emptyResult)
+            let errorMsg = errorHandling.checkForError(with: .dataIsNil)
+            presenter?.didRetriveError(errorMsg: errorMsg)
         } else {
             presenter?.didRetrivePopularMovies(movieResponse: movieResponse)
         }
     }
     
     func onErrorRetriveMovies(error: NetworkError) {
-        presenter?.didRetriveError(error: error)
+        let errorMsg = errorHandling.checkForError(with: error)
+        presenter?.didRetriveError(errorMsg: errorMsg)
     }
 }

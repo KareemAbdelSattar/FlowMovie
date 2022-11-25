@@ -8,13 +8,6 @@
 
 import UIKit
 
-protocol MovieDetailsViewProtocol: AnyObject {
-    var presenter: MovieDetailsPresenterProtocol? { get set }
-    func showIndicator()
-    func hideIndicator()
-    func updateMovieDetailsUI(movieDetails: MovieDetailsResponse)
-}
-
 class MovieDetailsVC: UIViewController {
     @IBOutlet weak var overviewLabel: UILabel!
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
@@ -63,5 +56,9 @@ extension MovieDetailsVC: MovieDetailsViewProtocol {
         overviewLabel.text = movieDetails.overview
         tagLineLabel.text = movieDetails.tagline
         rateLabel.text = movieDetails.rate
+    }
+    
+    func showError(errorMsg: String) {
+        self.showAlertView(with: errorMsg)
     }
 }

@@ -8,14 +8,6 @@
 
 import UIKit
 
-protocol MovieDetailsInteractorProtocol {
-    var presenter: MovieDetailsPresenterProtocol? { get set }
-    var remoteDataManger: MovieDetailsRemoteDataMangerProtocol? { get set }
-    func fetchMovieDetails(movieId: Int)
-    func onRetriveMovieDetails(movieDetails: MovieDetailsResponse)
-    func onErrorRetriveMovieDetails(error: NetworkError)
-}
-
 class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
     var remoteDataManger: MovieDetailsRemoteDataMangerProtocol?
     var presenter: MovieDetailsPresenterProtocol?
@@ -29,7 +21,7 @@ class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
     }
     
     func onErrorRetriveMovieDetails(error: NetworkError) {
-        presenter?.didRetriveError(error: error)
+        let errorMsg = ErrorHandling().checkForError(with: error)
+        presenter?.didRetriveError(errorMsg: errorMsg)
     }
-    
 }

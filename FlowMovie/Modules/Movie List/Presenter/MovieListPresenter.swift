@@ -8,18 +8,6 @@
 
 import Foundation
 
-
-protocol MovieListPresenterProtocol: AnyObject {
-    var view: MovieListViewProtocol? { get set }
-    var interactor: MovieListInteractorProtocol? { get set }
-    var router: MovieListRouterProtocol? { get set }
-    func viewDidLoad()
-    func getPopularMovies()
-    func didRetrivePopularMovies(movieResponse: MovieResponse)
-    func didRetriveError(error: NetworkError)
-    func presentMovieDetails(movieId: Int)
-}
-
 class MovieListPresenter: MovieListPresenterProtocol {
     weak var view: MovieListViewProtocol?
     var interactor: MovieListInteractorProtocol?
@@ -42,21 +30,8 @@ class MovieListPresenter: MovieListPresenterProtocol {
         page = (page + 1 <= movieResponse.total_pages ?? 1) ? (movieResponse.page ?? 1) + 1 : 1
     }
     
-    func didRetriveError(error: NetworkError) {
-        switch error {
-        case .noConnection:
-            view?.showError(errorMsg: "No internet connection")
-        case .failed:
-            view?.showError(errorMsg: "Can't decode the data")
-        case .dataIsNil:
-            view?.showError(errorMsg: "Data is empty")
-        case .notAuthentication:
-            view?.showError(errorMsg: "Not authentication")
-        case .invalidResponse:
-            view?.showError(errorMsg: "Invalid response")
-        case .emptyResult:
-            view?.showError(errorMsg: "No popular movies")
-        }
+    func didRetriveError(errorMsg: String){
+        view?.showError(errorMsg: errorMsg)
     }
     
     func presentMovieDetails(movieId: Int) {

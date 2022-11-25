@@ -7,10 +7,6 @@
 
 import Alamofire
 
-protocol MovieListRemoteDataMangerProtocol: AnyObject {
-    var interactor: MovieListInteractorProtocol? { get set }
-    func getPopularMovies(page: Int)
-}
 
 class MovieListRemoteDataManger: MovieListRemoteDataMangerProtocol {
     var interactor: MovieListInteractorProtocol?
