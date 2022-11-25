@@ -7,11 +7,6 @@
 
 import Foundation
 
-protocol MovieDetailsRemoteDataMangerProtocol: AnyObject {
-    var interactor: MovieDetailsInteractorProtocol? { get set }
-    func getMovieDetails(movieId: Int)
-}
-
 class MovieDetailsRemoteDataManger: MovieDetailsRemoteDataMangerProtocol {
     var interactor: MovieDetailsInteractorProtocol?
     
