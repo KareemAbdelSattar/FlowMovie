@@ -1,0 +1,6 @@
+framework module Pods_FlowMovie_FlowMovieUITests {
+  umbrella header "Pods-FlowMovie-FlowMovieUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
